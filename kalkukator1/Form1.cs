@@ -265,32 +265,32 @@ namespace kalkukator1
         private void buttonEQ_Click(object sender, EventArgs e)
         {
             float result = 0;
-            
-            
-                switch( (int) OperetorNumb)
+            if (TempNumb != "")
+            {
+                switch ((int)OperetorNumb)
                 {
 
                     case 1:
-                        result = Numb1+ float.Parse(TempNumb, CultureInfo.InvariantCulture.NumberFormat); ;
+                        result = Numb1 + float.Parse(TempNumb, CultureInfo.InvariantCulture.NumberFormat); ;
                         break;
                     case 2:
-                        result = Numb1- float.Parse(TempNumb, CultureInfo.InvariantCulture.NumberFormat); ;
+                        result = Numb1 - float.Parse(TempNumb, CultureInfo.InvariantCulture.NumberFormat); ;
                         break;
                     case 3:
                         result = Numb1 * float.Parse(TempNumb, CultureInfo.InvariantCulture.NumberFormat);
                         break;
                     case 4:
-                        if(float.Parse(TempNumb, CultureInfo.InvariantCulture.NumberFormat)==0)
-                           {
-                                
-                                System.Windows.Forms.MessageBox.Show("nie mo¿an dzieliæ przez 0");
-                                textBox1.Text = "";
-                           }
+                        if (float.Parse(TempNumb, CultureInfo.InvariantCulture.NumberFormat) == 0)
+                        {
+
+                            System.Windows.Forms.MessageBox.Show("nie mo¿na dzieliæ przez 0");
+                            textBox1.Text = "";
+                        }
                         else
                             result = Numb1 / float.Parse(TempNumb, CultureInfo.InvariantCulture.NumberFormat);
 
                         break;
-                default:
+                    default:
                         System.Windows.Forms.MessageBox.Show("z³y numer operacji");
                         break;
 
@@ -298,9 +298,16 @@ namespace kalkukator1
 
 
 
-            TempNumb = "";
-            ResetStatus = 1;
-            textBox1.Text = result.ToString();
+                TempNumb = result.ToString();
+                
+                textBox1.Text = result.ToString();
+            }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("nie poda³eœ drugiej liczby");
+            }
+
+            
         }
     }
 }
