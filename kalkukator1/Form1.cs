@@ -4,6 +4,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace kalkukator1
 {
+
     public partial class Form1 : Form
     {
         public Form1()
@@ -292,15 +293,17 @@ namespace kalkukator1
                         break;
                     default:
                         System.Windows.Forms.MessageBox.Show("z³y numer operacji");
+                        result = Numb1;
                         break;
 
                 }
 
 
-
+                OperetorNumb = 0;
                 TempNumb = result.ToString();
                 
                 textBox1.Text = result.ToString();
+
             }
             else
             {
