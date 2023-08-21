@@ -303,7 +303,7 @@ namespace kalkukator1
                 TempNumb = result.ToString();
                 
                 textBox1.Text = result.ToString();
-
+                
             }
             else
             {
@@ -311,6 +311,12 @@ namespace kalkukator1
             }
 
             
+        }
+
+        private void button_Hist_Click(object sender, EventArgs e)
+        {
+            historia history =new historia();
+            history.Show();
         }
     }
 }
