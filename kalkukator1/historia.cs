@@ -12,14 +12,20 @@ namespace kalkukator1
 {
     public partial class historia : Form
     {
-        public historia()
+        public List<string> HistList = new List<string>();
+        public historia(List<string> Data)
         {
             InitializeComponent();
+            HistList = Data;
+            listBox1.DataSource = HistList;
         }
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
+        
+        
     }
 }
+
