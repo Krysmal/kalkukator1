@@ -1,3 +1,4 @@
+using Microsoft.VisualBasic.ApplicationServices;
 using System.Collections;
 using System.Diagnostics.Contracts;
 using System.Globalization;
@@ -8,20 +9,29 @@ namespace kalkukator1
 
     public partial class Form1 : Form
     {
-        public Form1()
-        {
-            InitializeComponent();
-
-        }
         public int OperatorNumb = 0;//defines type of operator selected for operation 0 is default, 1 means +, 2 means -, 3 means *, 4 means /
         public float Numb1 = 0; //contains number from input
         public int Index = 0;
         public string TempNumb = "";//temporary number from input
-        public int ResetStatus=0;//clears textbox 
+        public int ResetStatus = 0;//clears textbox 
         public List<string> HistList = new List<string>();//List for logs
         public string Operator;
+        historia history;
+
+        public Form1()
+        {
+            InitializeComponent();
+            history = new historia();
+            
+        }
+        
+        
+
+
         private void button1_Click(object sender, EventArgs e)
         {
+            
+            
             if(ResetStatus==1)
             {
                 textBox1.Text = "";
@@ -60,6 +70,7 @@ namespace kalkukator1
             textBox1.Text += "4";
             TempNumb += "4";
         }
+
         private void button5_Click(object sender, EventArgs e)
         {
             if (ResetStatus == 1)
@@ -328,7 +339,15 @@ namespace kalkukator1
 
         private void button_Hist_Click(object sender, EventArgs e)
         {
-            historia history =new historia(HistList);
+
+            //string zmienna = "ads";
+            //history.test = zmienna;
+
+
+
+            //historia history = new historia();
+            history.HistList=HistList;
+            
             history.Show();
         }
     }
