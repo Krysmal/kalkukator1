@@ -16,6 +16,7 @@ namespace kalkukator1
         public int ResetStatus = 0;//clears textbox 
         public List<string> HistList = new List<string>();//List for logs
         public string Operator;
+        public bool IfEnded= false;//determines need for clearing input
         historia history;
 
         public Form1()
@@ -30,9 +31,12 @@ namespace kalkukator1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            
-            if(ResetStatus==1)
+            if (IfEnded)
+            {
+                buttonC_Click(sender, e);
+            }
+            IfEnded = false;
+            if (ResetStatus==1)
             {
                 textBox1.Text = "";
                 ResetStatus =0;
@@ -42,6 +46,11 @@ namespace kalkukator1
         }
         private void button2_Click(object sender, EventArgs e)
         {
+            if (IfEnded)
+            {
+                buttonC_Click(sender, e);
+            }
+            IfEnded = false;
             if (ResetStatus == 1)
             {
                 textBox1.Text = "";
@@ -52,6 +61,11 @@ namespace kalkukator1
         }
         private void button3_Click(object sender, EventArgs e)
         {
+            if (IfEnded)
+            {
+                buttonC_Click(sender, e);
+            }
+            IfEnded = false;
             if (ResetStatus == 1)
             {
                 textBox1.Text = "";
@@ -62,6 +76,11 @@ namespace kalkukator1
         }
         private void button4_Click(object sender, EventArgs e)
         {
+            if (IfEnded)
+            {
+                buttonC_Click(sender, e);
+            }
+            IfEnded = false;
             if (ResetStatus == 1)
             {
                 textBox1.Text = "";
@@ -73,6 +92,11 @@ namespace kalkukator1
 
         private void button5_Click(object sender, EventArgs e)
         {
+            if (IfEnded)
+            {
+                buttonC_Click(sender, e);
+            }
+            IfEnded = false;
             if (ResetStatus == 1)
             {
                 textBox1.Text = "";
@@ -83,7 +107,11 @@ namespace kalkukator1
         }
         private void button6_Click(object sender, EventArgs e)
         {
-
+            if (IfEnded)
+            {
+                buttonC_Click(sender, e);
+            }
+            IfEnded = false;
             if (ResetStatus == 1)
             {
                 textBox1.Text = "";
@@ -94,7 +122,11 @@ namespace kalkukator1
         }
         private void button7_Click(object sender, EventArgs e)
         {
-
+            if (IfEnded)
+            {
+                buttonC_Click(sender, e);
+            }
+            IfEnded = false;
             if (ResetStatus == 1)
             {
                 textBox1.Text = "";
@@ -105,7 +137,11 @@ namespace kalkukator1
         }
         private void button8_Click(object sender, EventArgs e)
         {
-
+            if (IfEnded)
+            {
+                buttonC_Click(sender, e);
+            }
+            IfEnded = false;
             if (ResetStatus == 1)
             {
                 textBox1.Text = "";
@@ -116,7 +152,11 @@ namespace kalkukator1
         }
         private void button9_Click(object sender, EventArgs e)
         {
-
+            if (IfEnded)
+            {
+                buttonC_Click(sender, e);
+            }
+            IfEnded = false;
             if (ResetStatus == 1)
             {
                 textBox1.Text = "";
@@ -127,7 +167,11 @@ namespace kalkukator1
         }
         private void button0_Click(object sender, EventArgs e)
         {
-
+            if(IfEnded)
+            {
+               buttonC_Click(sender, e);
+            }
+            IfEnded =false;
             if (ResetStatus == 1)
             {
                 textBox1.Text = "";
@@ -323,7 +367,7 @@ namespace kalkukator1
                 TempNumb = result.ToString();
                 
                 textBox1.Text = result.ToString();
-                
+                IfEnded = true;
             }
             else
             {
