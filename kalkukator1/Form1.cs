@@ -1,4 +1,6 @@
+using Microsoft.VisualBasic.ApplicationServices;
 using System.Collections;
+using System.Diagnostics.Contracts;
 using System.Globalization;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -7,18 +9,29 @@ namespace kalkukator1
 
     public partial class Form1 : Form
     {
-        public Form1()
-        {
-            InitializeComponent();
-
-        }
-        public int OperetorNumb = 0;//defines type of operator selected for operation 0 is default, 1 means +, 2 means -, 3 means *, 4 means /
+        public int OperatorNumb = 0;//defines type of operator selected for operation 0 is default, 1 means +, 2 means -, 3 means *, 4 means /
         public float Numb1 = 0; //contains number from input
         public int Index = 0;
         public string TempNumb = "";//temporary number from input
-        public int ResetStatus=0;//clears textbox after pressing any button anter =
+        public int ResetStatus = 0;//clears textbox 
+        public List<string> HistList = new List<string>();//List for logs
+        public string Operator;
+        historia history;
+
+        public Form1()
+        {
+            InitializeComponent();
+            history = new historia();
+            
+        }
+        
+        
+
+
         private void button1_Click(object sender, EventArgs e)
         {
+            
+            
             if(ResetStatus==1)
             {
                 textBox1.Text = "";
@@ -57,6 +70,7 @@ namespace kalkukator1
             textBox1.Text += "4";
             TempNumb += "4";
         }
+
         private void button5_Click(object sender, EventArgs e)
         {
             if (ResetStatus == 1)
@@ -140,7 +154,7 @@ namespace kalkukator1
                 temp=temp.Remove(StringLen-2);
                 temp += "+ ";
                 textBox1.Text = temp;
-                OperetorNumb = 1;
+                OperatorNumb = 1;
 
 
 
@@ -148,7 +162,7 @@ namespace kalkukator1
             else
             {
                 textBox1.Text += " + ";
-                OperetorNumb=1;
+                OperatorNumb=1;
                 if (TempNumb == "")
                 {
                     System.Windows.Forms.MessageBox.Show("brak liczby");
@@ -158,7 +172,6 @@ namespace kalkukator1
                     Numb1 =float.Parse(TempNumb,CultureInfo.InvariantCulture.NumberFormat);
                 TempNumb = "";
 
-                //System.Windows.Forms.MessageBox.Show(test);
                 Index++;
             }
 
@@ -174,7 +187,7 @@ namespace kalkukator1
                 temp = temp.Remove(StringLen - 2);
                 temp += "- ";
                 textBox1.Text = temp;
-                OperetorNumb = 2;
+                OperatorNumb = 2;
 
 
 
@@ -182,7 +195,7 @@ namespace kalkukator1
             else
             {
                 textBox1.Text += " - ";
-                OperetorNumb = 2;
+                OperatorNumb = 2;
                 if(TempNumb=="")
                 {
                     System.Windows.Forms.MessageBox.Show("brak liczby");
@@ -192,7 +205,6 @@ namespace kalkukator1
                 Numb1 = float.Parse(TempNumb, CultureInfo.InvariantCulture.NumberFormat);
                 TempNumb = "";
 
-                //System.Windows.Forms.MessageBox.Show(test);
                 Index++;
             }
         }
@@ -207,7 +219,7 @@ namespace kalkukator1
                 temp = temp.Remove(StringLen - 2);
                 temp += "* ";
                 textBox1.Text = temp;
-                OperetorNumb = 3;
+                OperatorNumb = 3;
 
 
 
@@ -215,7 +227,7 @@ namespace kalkukator1
             else
             {
                 textBox1.Text += " * ";
-                OperetorNumb = 3;
+                OperatorNumb = 3;
                 if (TempNumb == "")
                 {
                     System.Windows.Forms.MessageBox.Show("brak liczby");
@@ -225,7 +237,6 @@ namespace kalkukator1
                     Numb1 = float.Parse(TempNumb, CultureInfo.InvariantCulture.NumberFormat);
                 TempNumb = "";
 
-                //System.Windows.Forms.MessageBox.Show(test);
                 Index++;
             }
         }
@@ -240,7 +251,7 @@ namespace kalkukator1
                 temp = temp.Remove(StringLen - 2);
                 temp += "/ ";
                 textBox1.Text = temp;
-                OperetorNumb = 4;
+                OperatorNumb = 4;
 
 
 
@@ -248,7 +259,7 @@ namespace kalkukator1
             else
             {
                 textBox1.Text += " / ";
-                OperetorNumb = 4;
+                OperatorNumb = 4;
                 if (TempNumb == "")
                 {
                     System.Windows.Forms.MessageBox.Show("brak liczby");
@@ -258,7 +269,6 @@ namespace kalkukator1
                     Numb1 = float.Parse(TempNumb, CultureInfo.InvariantCulture.NumberFormat);
                 TempNumb = "";
 
-                //System.Windows.Forms.MessageBox.Show(test);
                 Index++;
             }
         }
@@ -268,17 +278,20 @@ namespace kalkukator1
             float result = 0;
             if (TempNumb != "")
             {
-                switch ((int)OperetorNumb)
+                switch ((int)OperatorNumb)
                 {
 
                     case 1:
-                        result = Numb1 + float.Parse(TempNumb, CultureInfo.InvariantCulture.NumberFormat); ;
+                        result = Numb1 + float.Parse(TempNumb, CultureInfo.InvariantCulture.NumberFormat);
+                        Operator = "+";
                         break;
                     case 2:
-                        result = Numb1 - float.Parse(TempNumb, CultureInfo.InvariantCulture.NumberFormat); ;
+                        result = Numb1 - float.Parse(TempNumb, CultureInfo.InvariantCulture.NumberFormat);
+                        Operator = "-";
                         break;
                     case 3:
                         result = Numb1 * float.Parse(TempNumb, CultureInfo.InvariantCulture.NumberFormat);
+                        Operator = "*";
                         break;
                     case 4:
                         if (float.Parse(TempNumb, CultureInfo.InvariantCulture.NumberFormat) == 0)
@@ -288,7 +301,11 @@ namespace kalkukator1
                             textBox1.Text = "";
                         }
                         else
+                        {
                             result = Numb1 / float.Parse(TempNumb, CultureInfo.InvariantCulture.NumberFormat);
+                            Operator = "/";
+                        }
+                            
 
                         break;
                     default:
@@ -298,12 +315,15 @@ namespace kalkukator1
 
                 }
 
-
-                OperetorNumb = 0;
+                string time = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss ");
+                string log = time + Numb1.ToString() + " "+Operator+" "+TempNumb+" = "+result.ToString();
+                HistList.Add(log);
+                
+                OperatorNumb = 0;
                 TempNumb = result.ToString();
                 
                 textBox1.Text = result.ToString();
-
+                
             }
             else
             {
@@ -311,6 +331,13 @@ namespace kalkukator1
             }
 
             
+        }
+
+        private void button_Hist_Click(object sender, EventArgs e)
+        {
+            history.HistList=HistList;
+            
+            history.Show();
         }
     }
 }

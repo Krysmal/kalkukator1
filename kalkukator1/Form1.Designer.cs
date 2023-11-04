@@ -46,6 +46,7 @@
             this.buttonDIV = new System.Windows.Forms.Button();
             this.buttonMUL = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button_Hist = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -219,6 +220,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.button_Hist);
             this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.buttonDIV);
             this.panel1.Controls.Add(this.textBox1);
@@ -241,6 +243,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(326, 450);
             this.panel1.TabIndex = 17;
+            // 
+            // button_Hist
+            // 
+            this.button_Hist.Location = new System.Drawing.Point(45, 344);
+            this.button_Hist.Name = "button_Hist";
+            this.button_Hist.Size = new System.Drawing.Size(218, 50);
+            this.button_Hist.TabIndex = 17;
+            this.button_Hist.Text = "Historia";
+            this.button_Hist.UseVisualStyleBackColor = true;
+            this.button_Hist.Click += new System.EventHandler(this.button_Hist_Click);
             // 
             // Form1
             // 
@@ -276,5 +288,6 @@
         private Button buttonDIV;
         private Button buttonMUL;
         private Panel panel1;
+        private Button button_Hist;
     }
 }
