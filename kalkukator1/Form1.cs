@@ -172,7 +172,6 @@ namespace kalkukator1
                     Numb1 =float.Parse(TempNumb,CultureInfo.InvariantCulture.NumberFormat);
                 TempNumb = "";
 
-                //System.Windows.Forms.MessageBox.Show(test);
                 Index++;
             }
 
@@ -206,7 +205,6 @@ namespace kalkukator1
                 Numb1 = float.Parse(TempNumb, CultureInfo.InvariantCulture.NumberFormat);
                 TempNumb = "";
 
-                //System.Windows.Forms.MessageBox.Show(test);
                 Index++;
             }
         }
@@ -239,7 +237,6 @@ namespace kalkukator1
                     Numb1 = float.Parse(TempNumb, CultureInfo.InvariantCulture.NumberFormat);
                 TempNumb = "";
 
-                //System.Windows.Forms.MessageBox.Show(test);
                 Index++;
             }
         }
@@ -272,7 +269,6 @@ namespace kalkukator1
                     Numb1 = float.Parse(TempNumb, CultureInfo.InvariantCulture.NumberFormat);
                 TempNumb = "";
 
-                //System.Windows.Forms.MessageBox.Show(test);
                 Index++;
             }
         }
@@ -322,7 +318,7 @@ namespace kalkukator1
                 string time = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss ");
                 string log = time + Numb1.ToString() + " "+Operator+" "+TempNumb+" = "+result.ToString();
                 HistList.Add(log);
-                //System.Windows.Forms.MessageBox.Show(HistList[0]);
+                
                 OperatorNumb = 0;
                 TempNumb = result.ToString();
                 
@@ -339,13 +335,6 @@ namespace kalkukator1
 
         private void button_Hist_Click(object sender, EventArgs e)
         {
-
-            //string zmienna = "ads";
-            //history.test = zmienna;
-
-
-
-            //historia history = new historia();
             history.HistList=HistList;
             
             history.Show();
