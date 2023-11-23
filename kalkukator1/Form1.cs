@@ -13,7 +13,6 @@ namespace kalkukator1
         public float Numb1 = 0; //contains number from input
         public int Index = 0;
         public string TempNumb = "";//temporary number from input
-        //public int ResetStatus = 0;//clears textbox 
         public List<string> HistList = new List<string>();//List for logs
         public string Operator;
         public bool IfEnded= false;//determines need for clearing input
@@ -143,6 +142,7 @@ namespace kalkukator1
         
         private void buttonC_Click(object sender, EventArgs e)
         {
+            IfEnded = false;
             textBox1.Text = "";
             TempNumb = "";
         }
@@ -150,7 +150,7 @@ namespace kalkukator1
         private void buttonADD_Click(object sender, EventArgs e)
         {
             string temp = textBox1.Text;
-
+            IfEnded = false;
             if (temp.EndsWith(" "))
             {
                 int StringLen = temp.Length;
@@ -183,7 +183,7 @@ namespace kalkukator1
         private void buttonSUB_Click(object sender, EventArgs e)
         {
             string temp = textBox1.Text;
-
+            IfEnded = false;
             if (temp.EndsWith(" "))
             {
                 int StringLen = temp.Length;
@@ -215,7 +215,7 @@ namespace kalkukator1
         private void buttonMUL_Click(object sender, EventArgs e)
         {
             string temp = textBox1.Text;
-
+            IfEnded = false;
             if (temp.EndsWith(" "))
             {
                 int StringLen = temp.Length;
@@ -239,7 +239,7 @@ namespace kalkukator1
                 else
                     Numb1 = float.Parse(TempNumb, CultureInfo.InvariantCulture.NumberFormat);
                 TempNumb = "";
-
+                
                 Index++;
             }
         }
@@ -247,7 +247,7 @@ namespace kalkukator1
         private void buttonDIV_Click(object sender, EventArgs e)
         {
             string temp = textBox1.Text;
-
+            IfEnded = false;
             if (temp.EndsWith(" "))
             {
                 int StringLen = temp.Length;
