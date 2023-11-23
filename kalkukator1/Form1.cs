@@ -13,7 +13,7 @@ namespace kalkukator1
         public float Numb1 = 0; //contains number from input
         public int Index = 0;
         public string TempNumb = "";//temporary number from input
-        public int ResetStatus = 0;//clears textbox 
+        //public int ResetStatus = 0;//clears textbox 
         public List<string> HistList = new List<string>();//List for logs
         public string Operator;
         public bool IfEnded= false;//determines need for clearing input
@@ -36,11 +36,7 @@ namespace kalkukator1
                 buttonC_Click(sender, e);
             }
             IfEnded = false;
-            if (ResetStatus==1)
-            {
-                textBox1.Text = "";
-                ResetStatus =0;
-            }
+            
             textBox1.Text += "1";
             TempNumb += "1";
         }
@@ -51,11 +47,7 @@ namespace kalkukator1
                 buttonC_Click(sender, e);
             }
             IfEnded = false;
-            if (ResetStatus == 1)
-            {
-                textBox1.Text = "";
-                ResetStatus = 0;
-            }
+            
             textBox1.Text += "2";
             TempNumb += "2";
         }
@@ -66,11 +58,7 @@ namespace kalkukator1
                 buttonC_Click(sender, e);
             }
             IfEnded = false;
-            if (ResetStatus == 1)
-            {
-                textBox1.Text = "";
-                ResetStatus = 0;
-            }
+            
             textBox1.Text += "3";
             TempNumb += "3";
         }
@@ -81,11 +69,7 @@ namespace kalkukator1
                 buttonC_Click(sender, e);
             }
             IfEnded = false;
-            if (ResetStatus == 1)
-            {
-                textBox1.Text = "";
-                ResetStatus = 0;
-            }
+            
             textBox1.Text += "4";
             TempNumb += "4";
         }
@@ -96,12 +80,7 @@ namespace kalkukator1
             {
                 buttonC_Click(sender, e);
             }
-            IfEnded = false;
-            if (ResetStatus == 1)
-            {
-                textBox1.Text = "";
-                ResetStatus = 0;
-            }
+            
             textBox1.Text += "5";
             TempNumb += "5";
         }
@@ -112,11 +91,7 @@ namespace kalkukator1
                 buttonC_Click(sender, e);
             }
             IfEnded = false;
-            if (ResetStatus == 1)
-            {
-                textBox1.Text = "";
-                ResetStatus = 0;
-            }
+            
             textBox1.Text += "6";
             TempNumb += "6";
         }
@@ -127,11 +102,7 @@ namespace kalkukator1
                 buttonC_Click(sender, e);
             }
             IfEnded = false;
-            if (ResetStatus == 1)
-            {
-                textBox1.Text = "";
-                ResetStatus = 0;
-            }
+            
             textBox1.Text +="7";
             TempNumb += "7";
         }
@@ -142,11 +113,7 @@ namespace kalkukator1
                 buttonC_Click(sender, e);
             }
             IfEnded = false;
-            if (ResetStatus == 1)
-            {
-                textBox1.Text = "";
-                ResetStatus = 0;
-            }
+            
             textBox1.Text += "8";
             TempNumb += "8";
         }
@@ -157,11 +124,7 @@ namespace kalkukator1
                 buttonC_Click(sender, e);
             }
             IfEnded = false;
-            if (ResetStatus == 1)
-            {
-                textBox1.Text = "";
-                ResetStatus = 0;
-            }
+            
             textBox1.Text += "9";
             TempNumb += "9";
         }
@@ -172,11 +135,7 @@ namespace kalkukator1
                buttonC_Click(sender, e);
             }
             IfEnded =false;
-            if (ResetStatus == 1)
-            {
-                textBox1.Text = "";
-                ResetStatus = 0;
-            }
+            
             textBox1.Text += "0";
             TempNumb += "0";
         }
@@ -199,7 +158,7 @@ namespace kalkukator1
                 temp += "+ ";
                 textBox1.Text = temp;
                 OperatorNumb = 1;
-
+                
 
 
             }
